@@ -34,7 +34,7 @@ class UserServices {
                     as: "task",
                     include:{
                         model:TodosCategories,
-                        as: "category",
+                        as: "categories",
                     },
                 }
             });

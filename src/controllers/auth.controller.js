@@ -14,7 +14,7 @@ const userLogin = async (req, res) => {
             }
             // firmamos un nuevo token al JWT
             //jwt.sign(payload, secretOrPrivateKey, [options, callback])
-            const token = jwt.sign(data, 'shala shalala', {algorithm: "HS512"});//usamos la libreria de JWT
+            const token = jwt.sign(data, 'shala shalala', {algorithm: "HS512", expiresIn: "1m"});//usamos la libreria de JWT
             data.token = token; //creamos la propiedad token y pasamos el token
             res.status(200).json(data);
         }else{

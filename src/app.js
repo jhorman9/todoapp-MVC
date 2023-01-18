@@ -6,7 +6,7 @@ const userRoutes = require('./routes/users.routes');
 const todoRoutes = require('./routes/todos.routes');
 const authRoutes = require('./routes/auth.routes');
 const cors = require('cors');//Es un middleware de terceros, se usa porque cuando recibimos 2 peticiones de diferentes host dá error, con esto logramos que funcione.
-
+require('dotenv').config();
 
 // crear una instancia de express
 const app = express();
@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const PORT = 8000;
+const PORT = process.env.PORT;
 
 // probando la conexion a la base de datos
 db.authenticate()//devuelve una promesa

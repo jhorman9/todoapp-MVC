@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 const authMiddleware = (req, res ,next) => {
     // const token = req.header.authorization; //tambien puede ser asi es lo mismo
@@ -6,7 +7,7 @@ const authMiddleware = (req, res ,next) => {
     token = token.replace("Bearer ", "");
     jwt.verify(
         token,
-         "shala shalala", 
+         process.env.JWT_SECRET, 
     {algorithms: "HS512"},
     (err, decoded) => {
         if(err){  
